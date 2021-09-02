@@ -3,7 +3,7 @@ const sequelize = require("../config/connection");
 const bcrypt = require('bcrypt');
 
 class User extends Model {
-    checkpw(pw) { }
+    //checkpw(pw) { }
 }
 
 User.init(

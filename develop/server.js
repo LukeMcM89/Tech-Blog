@@ -11,7 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname,"public")));
 app.use(routes);
-
-app.listen(PORT, () => {
+sequelize.sync().then(() => {
+  console.log('Sequelize connected to MySQL Database!');
+  app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
   });
+});

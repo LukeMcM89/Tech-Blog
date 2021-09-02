@@ -10,11 +10,11 @@ Comment.init({
         primaryKey: true
 
     },
-    userid: {
+    user_id: {
         type: DataTypes.INTEGER,
         references: { model: "user", key: "id" }
     },
-    postid: {
+    post_id: {
         type: DataTypes.INTEGER,
         references: { model: "post", key: "id" }
     },
