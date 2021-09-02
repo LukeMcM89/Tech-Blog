@@ -5,6 +5,7 @@ const { User, Post, Comment } = require("../../models/model-loader");
 router.get("/", async (req,res) => {
     const data = await User.findAll({
         attributes: {exclude:["password"]}
+
     });
     res.json(data);
 });
@@ -12,7 +13,9 @@ router.get("/", async (req,res) => {
 //Get User by Id
 router.get("/:id", async (req,res) => {
     const data = await User.findByPk(req.params.id,{
-        attributes: {exclude:["password"]}
+        attributes: {exclude:["password"]},
+        include: [{},{},{}]
+
     });
     
 });
