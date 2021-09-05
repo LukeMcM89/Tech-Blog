@@ -3,12 +3,19 @@ const { User, Post, Comment } = require("../../models/model-loader");
 
 //Get all Comments
 router.get("/", async (req,res) => {
-
+    const data = await Comment.findAll({
+        attributes: { exclude: ["password"] }
+    });
+    res.json(data);
 });
 
 //Get Comment by Id
-router.get("/:id", (req,res) => {
-    
+router.get("/:id", async (req,res) => {
+    const data = await Comment.findByPk(req.params.id, {
+        attributes: { exclude: ['password'] },
+        include: [ { model: User}, {model: Post} ]
+});
+    res.json(data);
 });
 
 //Create Comment

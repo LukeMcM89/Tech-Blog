@@ -5,7 +5,6 @@ const { User, Post, Comment } = require("../../models/model-loader");
 router.get("/", async (req, res) => {
     const data = await User.findAll({
         attributes: { exclude: ["password"] }
-
     });
     res.json(data);
 });
