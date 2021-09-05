@@ -12,18 +12,25 @@ router.get("/:id", (req,res) => {
 });
 
 //Create Comment
-router.post("/",(req,res) => {
-    
+router.post("/", async (req,res) => {
+    const data = await Comment.create(req.body);
+    res.json(data);
 });
 
 //Edit Comment by Id
-router.put("/:id",(req,res) => {
-    
+router.put("/:id", async (req,res) => {
+    const data = await Comment.update(req.body, {
+        where: {id: req.params.id}
+    })
+    res.jsonp(data);
 });
 
 //Delete Comment by Id
-router.delete("/:id",(req,res) => {
-    
+router.delete("/:id", async (req,res) => {
+    const data = await Comment.destroy({
+        where: {id: req.params.id}
+    })
+    res.json(data);
 });
 
 
