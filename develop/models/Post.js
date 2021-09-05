@@ -9,13 +9,16 @@ Post.init({
         autoIncrement: true,
         primaryKey: true
     },
+
     user_id: {
         type: DataTypes.INTEGER,
         references: { model: "user", key: "id" }
     },
+
     title: {
         type: DataTypes.STRING
     },
+    
     content: {
         type: DataTypes.TEXT
     }
